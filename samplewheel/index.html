@@ -11,145 +11,101 @@
     <meta property="og:url" content="https://www.wheelverseaudio.com/samplewheel/" />
     <meta name="robots" content="noindex" />
     <link rel="icon" href="/get/icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/site.css" />
     <script>
       // THE BUY LINK: empty until SampleWheel goes on sale (the button reads "Coming soon").
       // Set it to the Stripe Payment Link to start selling.
       var BUY_URL = '';
-      // Dronewheel Pro: the app, where the subscription is bought.
-      var APP_URL = '/get/';
     </script>
-    <style>
-      :root {
-        --bg: #f5f3ec;
-        --card: #f8f6f0;
-        --ink: #3a3320;
-        --muted: #8a8474;
-        --line: #e3ded0;
-        --yellow: #efa800;
-        --yellow-deep: #c77f00;
-        --hi: #ffffff;
-        --lo: #d9d3c2;
-        color-scheme: light;
-      }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg: #1f1d18;
-          --card: #26231d;
-          --ink: #eeeae0;
-          --muted: #a39d8d;
-          --line: #3a362c;
-          --hi: #2c2922;
-          --lo: #141310;
-          color-scheme: dark;
-        }
-      }
-      * { box-sizing: border-box; }
-      body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--ink);
-        font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
-        line-height: 1.5;
-      }
-      .wrap { max-width: 1040px; margin: 0 auto; padding-inline: 20px; }
-      header { padding-block: 56px 28px; text-align: center; }
-      .mark { font-size: clamp(26px, 5vw, 40px); letter-spacing: 0.32em; margin: 0 0 14px; font-weight: 400; padding-left: 0.32em; }
-      .mark b { color: var(--yellow); font-weight: 400; }
-      .tag { font-size: clamp(20px, 3.4vw, 28px); font-weight: 700; margin: 0 0 10px; text-wrap: balance; }
-      .sub { color: var(--muted); max-width: 560px; margin: 0 auto; text-wrap: balance; }
-      .shot { margin: 34px auto 0; max-width: 1000px; border-radius: 18px; overflow: hidden; box-shadow: 10px 10px 30px var(--lo), -10px -10px 30px var(--hi); }
-      .shot img { display: block; width: 100%; height: auto; }
-      .ways { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-block: 44px 8px; }
-      .way { background: var(--card); border-radius: 20px; padding: 24px; box-shadow: 6px 6px 16px var(--lo), -6px -6px 16px var(--hi); display: grid; gap: 10px; align-content: start; }
-      .way h2 { margin: 0; font-size: 19px; }
-      .way p { margin: 0; color: var(--muted); }
-      .price { font-size: 32px; font-weight: 700; }
-      .price small { font-size: 14px; color: var(--muted); font-weight: 400; }
-      .btn { display: inline-block; justify-self: start; margin-top: 6px; padding: 12px 26px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 0; font: inherit; font-weight: 700; cursor: pointer; }
-      .btn.buy { background: var(--yellow); color: #fff; box-shadow: 0 4px 12px rgba(199, 127, 0, 0.35); }
-      .btn.buy[aria-disabled="true"] { background: var(--line); color: var(--muted); box-shadow: none; cursor: default; }
-      .btn.ghost { background: var(--card); color: var(--ink); box-shadow: 4px 4px 10px var(--lo), -4px -4px 10px var(--hi); }
-      .note { text-align: center; color: var(--muted); font-size: 14px; margin: 14px 0 0; }
-      h3.sec { text-align: center; font-size: 12px; letter-spacing: 0.34em; color: var(--muted); font-weight: 400; margin: 60px 0 22px; padding-left: 0.34em; }
-      .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 26px 34px; }
-      .feature h4 { margin: 0 0 4px; font-size: 16px; }
-      .feature h4::before { content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); margin-right: 10px; vertical-align: 2px; }
-      .feature p { margin: 0; color: var(--muted); max-width: 60ch; }
-      .specs { display: grid; grid-template-columns: max-content 1fr; gap: 10px 26px; max-width: 640px; margin: 0 auto; }
-      .specs dt { color: var(--muted); }
-      .specs dd { margin: 0; }
-      .faq { max-width: 680px; margin: 0 auto; display: grid; gap: 18px; }
-      .faq b { display: block; }
-      .faq span { color: var(--muted); }
-      footer { text-align: center; color: var(--muted); font-size: 14px; padding-block: 60px 40px; }
-      footer a { color: inherit; }
-    </style>
   </head>
   <body>
-    <div class="wrap">
-      <header>
-        <p class="mark"><b>SAMPLE</b>WHEEL</p>
-        <h1 class="tag">The video sampler plugin.</h1>
-        <p class="sub">Chop any video onto a wheel of twelve pads and play the sound and the picture together, in your DAW.</p>
-        <div class="shot"><img src="plugin.png" width="1161" height="724" alt="SampleWheel in a DAW: a wheel of twelve pads round a video, the chop and play mode dials, and the phone project's clips." /></div>
-      </header>
+    <header class="nav"><div class="wrap">
+      <a class="brand" href="/">WHEELVERSE AUDIO</a><span class="sp"></span>
+      <a class="link" href="/dronewheel/">Dronewheel</a>
+      <a class="link" href="/samplewheel/" aria-current="page">SampleWheel</a>
+      <a class="link" href="/support/">Support</a>
+      <a class="pill" href="/app/">Sign in</a>
+    </div></header>
 
-      <section class="ways" aria-label="Get SampleWheel">
-        <div class="way">
-          <h2>With Dronewheel Pro</h2>
-          <p>SampleWheel comes with a Dronewheel Pro subscription. Sign in to the plugin with your Dronewheel account and it is ready.</p>
-          <a class="btn ghost" id="app" href="/get/">Get Dronewheel</a>
+    <main class="wrap">
+      <section class="hero">
+        <p class="kicker"><b style="color: var(--yellow)">SAMPLE</b>WHEEL</p>
+        <h1>The video sampler plugin.</h1>
+        <p>Chop any video onto a wheel of twelve pads and play the sound and the picture together, in your DAW.</p>
+      </section>
+      <img class="plugin" src="/img/samplewheel-plugin.png" width="1161" height="724" alt="SampleWheel in a DAW: a wheel of twelve pads round a video, the chop and play mode dials, and the phone project's clips." />
+
+      <section class="block" style="margin-top: 64px">
+        <p class="cap">GET IT</p>
+        <div class="cards">
+          <div class="card">
+            <h3>With Dronewheel Pro</h3>
+            <p>SampleWheel comes with a Dronewheel Pro subscription. Sign in to the plugin with your Dronewheel account and it is ready.</p>
+            <div class="btns"><a class="btn ghost" href="/dronewheel/">About Dronewheel</a></div>
+          </div>
+          <div class="card">
+            <h3>Or buy it outright</h3>
+            <div class="price">$29 <small>one time</small></div>
+            <p>Yours to keep, with every update. Sign in with the email you buy with.</p>
+            <div class="btns"><a class="btn" id="buy" aria-disabled="true">Coming soon</a></div>
+          </div>
         </div>
-        <div class="way">
-          <h2>Or buy it outright</h2>
-          <div class="price">$29 <small>one time</small></div>
-          <p>Yours to keep, with every update. Sign in with the email you buy with.</p>
-          <a class="btn buy" id="buy" role="button" aria-disabled="true">Coming soon</a>
+        <p class="note">VST3 and standalone for Windows 10 and 11. Mac is on the way.</p>
+      </section>
+
+      <section class="block">
+        <p class="cap">WHAT IT DOES</p>
+        <div class="grid">
+          <div class="item"><h3>Sample video, not just sound</h3><p>Drop in a video and every pad you hit plays its part of the sound and the picture with it, frame for frame.</p></div>
+          <div class="item"><h3>Twelve pads on a wheel</h3><p>Chop by beats, by hits or evenly, then drag any chop's edges on the waveform. Each pad has its own pitch and level.</p></div>
+          <div class="item"><h3>Four ways to play</h3><p>One-shot, Gate, Repeat and Grain, with the dials each one needs right under the switch.</p></div>
+          <div class="item"><h3>Locked to your tempo</h3><p>Warp the sample to your project's tempo without changing its pitch. Pads play from MIDI, your keyboard or a click.</p></div>
+          <div class="item" style="--dot: var(--blue)"><h3>Start on your phone</h3><p>Sample a video in Dronewheel, then open the same project in the plugin. Chops, settings and gain stay in sync both ways.</p></div>
+          <div class="item" style="--dot: var(--blue)"><h3>Your phone loops, in the DAW</h3><p>Loops you record in SampleWheel on the phone show up as clips you can step through and play on your DAW's grid.</p></div>
+          <div class="item" style="--dot: var(--blue)"><h3>Make a project here, finish it there</h3><p>Turn the sample in the plugin into a new Dronewheel project and carry on with it on your phone.</p></div>
+          <div class="item"><h3>Performance mode</h3><p>The video fills the window with the wheel over it, for playing live or recording a take.</p></div>
         </div>
       </section>
-      <p class="note">VST3 and standalone for Windows 10 and 11. Mac is on the way.</p>
 
-      <h3 class="sec">WHAT IT DOES</h3>
-      <section class="features">
-        <div class="feature"><h4>Sample video, not just sound</h4><p>Drop in a video and every pad you hit plays its part of the sound and the picture with it, frame for frame.</p></div>
-        <div class="feature"><h4>Twelve pads on a wheel</h4><p>Chop by beats, by hits or evenly, then drag any chop's edges on the waveform. Each pad has its own pitch and level.</p></div>
-        <div class="feature"><h4>Four ways to play</h4><p>One-shot, Gate, Repeat and Grain, with the dials each one needs right under the switch.</p></div>
-        <div class="feature"><h4>Locked to your tempo</h4><p>Warp the sample to your project's tempo without changing its pitch. Pads play from MIDI, your keyboard or a click.</p></div>
-        <div class="feature"><h4>Start on your phone</h4><p>Sample a video in Dronewheel, then open the same project in the plugin. Chops, settings and gain stay in sync both ways.</p></div>
-        <div class="feature"><h4>Your phone loops, in the DAW</h4><p>Loops you record in SampleWheel on the phone show up as clips you can step through and play on your DAW's grid.</p></div>
-        <div class="feature"><h4>Make a project here, finish it there</h4><p>Turn the sample in the plugin into a new Dronewheel project and carry on with it on your phone.</p></div>
-        <div class="feature"><h4>Performance mode</h4><p>The video fills the window with the wheel over it, for playing live or recording a take.</p></div>
+      <section class="block">
+        <p class="cap">WHAT YOU NEED</p>
+        <dl class="specs">
+          <dt>System</dt><dd>Windows 10 or 11, 64-bit</dd>
+          <dt>Formats</dt><dd>VST3, and a standalone app</dd>
+          <dt>DAW</dt><dd>Any VST3 host: Studio One, Ableton Live, FL Studio, Reaper, Bitwig, Cubase</dd>
+          <dt>Files</dt><dd>WAV, AIFF, FLAC, MP3, MP4, MOV and M4A, up to 10 minutes</dd>
+          <dt>Account</dt><dd>A Dronewheel account, to unlock the plugin and sync with your phone</dd>
+        </dl>
       </section>
 
-      <h3 class="sec">WHAT YOU NEED</h3>
-      <dl class="specs">
-        <dt>System</dt><dd>Windows 10 or 11, 64-bit</dd>
-        <dt>Formats</dt><dd>VST3, and a standalone app</dd>
-        <dt>DAW</dt><dd>Any VST3 host: Studio One, Ableton Live, FL Studio, Reaper, Bitwig, Cubase</dd>
-        <dt>Files</dt><dd>WAV, AIFF, FLAC, MP3, MP4, MOV and M4A, up to 10 minutes</dd>
-        <dt>Account</dt><dd>A Dronewheel account, to unlock the plugin and sync with your phone</dd>
-      </dl>
+      <section class="block">
+        <p class="cap">QUESTIONS</p>
+        <div class="faq">
+          <p><b>Do I need the Dronewheel app?</b><span>No. The plugin works on its own once it is unlocked. The app adds starting projects on your phone and syncing them.</span></p>
+          <p><b>I already pay for Dronewheel Pro. Do I pay again?</b><span>No. Sign in to the plugin with the same account and it unlocks.</span></p>
+          <p><b>What if my subscription ends?</b><span>The plugin locks again until you renew, or you can buy it outright.</span></p>
+          <p><b>Does it work on a Mac?</b><span>Not yet. A Mac version is planned.</span></p>
+        </div>
+      </section>
+    </main>
 
-      <h3 class="sec">QUESTIONS</h3>
-      <div class="faq">
-        <p><b>Do I need the Dronewheel app?</b><span>No. The plugin works on its own once it is unlocked. The app adds starting projects on your phone and syncing them.</span></p>
-        <p><b>I already pay for Dronewheel Pro. Do I pay again?</b><span>No. Sign in to the plugin with the same account and it unlocks.</span></p>
-        <p><b>What if my subscription ends?</b><span>The plugin locks again until you renew, or you can buy it outright.</span></p>
-        <p><b>Does it work on a Mac?</b><span>Not yet. A Mac version is planned.</span></p>
-      </div>
-
-      <footer>
-        <p>SampleWheel is made by Wheelverse Audio. <a href="/get/">Dronewheel for iPhone and Android</a></p>
-      </footer>
-    </div>
+    <footer class="foot"><div class="wrap">
+      <span>&copy; 2026 Wheelverse Audio</span><span class="sp"></span>
+      <a href="/support/">Support</a>
+      <a href="https://dronewheelprivacy.netlify.app/">Privacy</a>
+      <a href="mailto:support@wheelverseaudio.com">support@wheelverseaudio.com</a>
+    </div></footer>
     <script>
       var buy = document.getElementById('buy');
       if (BUY_URL) {
         buy.href = BUY_URL;
         buy.textContent = 'Buy SampleWheel';
+        buy.className = 'btn yellow';
         buy.removeAttribute('aria-disabled');
       }
-      document.getElementById('app').href = APP_URL;
     </script>
   </body>
 </html>
